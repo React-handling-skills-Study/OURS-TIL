@@ -1,4 +1,4 @@
-## REACT HANDLING SKILLS STUDY 🍀🍀
+# REACT HANDLING SKILLS STUDY 🍀🍀
 
 벨로퍼트님의 도서 '리액트를 다루는 기술'을 정독하는 스터디입니다!😃  
 큰 흐름은 책을 따라가지만 예제를 조금씩 변형하여 적용하려 합니다.  
@@ -11,7 +11,7 @@ props와 component의 기본을 생각할 수 있는 기회와
 <br/>
 <br/>
   
-### Study's Goal ✨
+## Study's Goal ✨
 
 1. Hooks를 능숙하게 사용하고, 이후 Custom Hooks를 만들어 필요한 곳에 사용하는 능력 기르기
 2. CSS-IN-JS인 Emotion을 사용하여 props 전달 및 다양한 기능을 활용하여 스타일링 하기.
@@ -52,6 +52,20 @@ props와 component의 기본을 생각할 수 있는 기회와
 - 장경찬
 - 양다영
 
+<br/>
+<br/>
+<br/>
+<br/>
+
+## Results
+- 회원가입 폼
+- ToDoList
+- 일기장
+
+<br/>
+<br/>
+<br/>
+
 ### Result of 1 round
 
 회원가입의 기본 폼을 만들었습니다.
@@ -60,6 +74,9 @@ props와 component의 기본을 생각할 수 있는 기회와
 3. 함수를 기능별로 나누는 방법을 서로 공유했습니다.
 4. 회원가입시 어떤식으로 Validation하는게 좋은지 서로 코드를 리뷰하였습니다.
 5. ES6 이상의 메서드, 기능을 사용하도록 노력했습니다.
+
+<br/>
+<br/>
 
 ### Result of 2 round
 
