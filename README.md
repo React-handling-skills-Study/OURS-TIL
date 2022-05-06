@@ -57,7 +57,7 @@ props와 component의 기본을 생각할 수 있는 기회와
 <br/>
 <br/>
 
-## Results
+## Results 🍭
 - 회원가입 폼
 - ToDoList
 - 일기장
@@ -66,7 +66,7 @@ props와 component의 기본을 생각할 수 있는 기회와
 <br/>
 <br/>
 
-### Result of 1 round
+### 🔥 Result of 1 round 🔥
 
 회원가입의 기본 폼을 만들었습니다.
 1. 파일을 구조화하는 방법을 공유했습니다.
@@ -78,6 +78,6 @@ props와 component의 기본을 생각할 수 있는 기회와
 <br/>
 <br/>
 
-### Result of 2 round
+### 🔥 Result of 2 round 🔥
 
 ToDoList, 일기장을 만들었습니다.
