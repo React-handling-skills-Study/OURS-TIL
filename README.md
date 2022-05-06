@@ -16,10 +16,10 @@
 
 발표는 4L 방식으로 진행합니다.
 
-- :눈이_하트_모양인_얼굴: 좋았던 것(Liked)
-- :책: 배운 것(Learned)
-- :땀방울: 부족했던 것(Lacked)
-- :양초: 바라는 것(Longed for)
+- 💑 좋았던 것(Liked)
+- 🌟 배운 것(Learned)
+- 💦 부족했던 것(Lacked)
+- 🌻 바라는 것(Longed for)
 
 
 ### Members 👨‍👨‍👦‍👦
