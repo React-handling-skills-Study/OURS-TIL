@@ -1,41 +1,6 @@
 import { useState, useRef } from 'react';
 import styled from 'styled-components';
 
-const StyleContainer = styled.div`
-  text-align: center;
-  padding: 20px;
-`;
-
-const StyleInput = styled.input`
-  margin-bottom: 20px;
-  width: 300px;
-  padding-bottom: 10px;
-  border: 2px solid #3498db;
-`;
-
-const StyleTextarea = styled.textarea`
-  padding-bottom: 10px;
-  width: 300px;
-  height: 150px;
-  margin-bottom: 15px;
-  border: 2px solid #3498db;
-`;
-const StyleButton = styled.button`
-  width: 300px;
-  padding: 10px 0;
-  cursor: pointer;
-  border-color: #3498db;
-  color: #fff;
-  box-shadow: 0 0 20px 20px #3498db inset, 0 0 0 0 #3498db;
-  transition: all 0.3s ease;
-
-  &:hover {
-    box-shadow: 0 0 15px 10px #3498db inset, 0 0 0 2px #3498db;
-    background-color: #3498db;
-    color: #000;
-  }
-`;
-
 const Editer = ({ create }) => {
   const nameInput = useRef();
   const contentInput = useRef();
@@ -76,15 +41,59 @@ const Editer = ({ create }) => {
     <StyleContainer>
       <h2>To do list & Diary</h2>
       <div>
-        <StyleInput ref={nameInput} name="name" value={state.name} onChange={handleState} placeholder="Write Title" />
+        <StyleInput ref={nameInput} name="name" value={state.name} onChange={handleState} placeholder="Title" />
       </div>
       <div>
-        <StyleTextarea ref={contentInput} name="content" value={state.content} onChange={handleState} placeholder="Write Comments"></StyleTextarea>
+        <StyleTextarea ref={contentInput} name="content" value={state.content} onChange={handleState} placeholder="Comments"></StyleTextarea>
       </div>
       <div>
-        <StyleButton onClick={handleSubmit}>!!!!SAVE!!!!</StyleButton>
+        <StyleButton onClick={handleSubmit}>!!!! S A V E !!!!</StyleButton>
       </div>
     </StyleContainer>
   );
 };
+
+
+const StyleContainer = styled.div`
+  text-align: center;
+  padding: 20px;
+`;
+
+const StyleInput = styled.input`
+  margin-bottom: 20px;
+  width: 300px;
+  padding-bottom: 10px;
+  border: 2px solid #3498db;
+`;
+
+const StyleTextarea = styled.textarea`
+  padding-bottom: 10px;
+  width: 300px;
+  height: 150px;
+  margin-bottom: 15px;
+  border: 2px solid #3498db;
+`;
+const StyleButton = styled.button`
+  width: 300px;
+  padding: 10px 0;
+  cursor: pointer;
+  border-color: #3498db;
+  color: #fff;
+  box-shadow: 0 0 20px 20px #3498db inset, 0 0 0 0 #3498db;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 0 15px 10px #3498db inset, 0 0 0 2px #3498db;
+    background-color: #3498db;
+    color: #000;
+  }
+`;
+
+
+
+
+
+
+
+
 export default Editer;
