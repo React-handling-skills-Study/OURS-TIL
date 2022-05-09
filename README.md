@@ -18,5 +18,28 @@
 
 ### Result of Round 2 - TODOLIST , 나만의 일기장 만들어보기
 
+
+### TODOLIST
+
 **폴더 구조**
 
+![todolistfile](https://user-images.githubusercontent.com/96774661/167442625-42823281-5f47-4fdb-bc41-3308e103174e.PNG)
+
+
+**최소 글자, 체크 기능, 삭제 기능 구현**
+
+
+![녹화_2022_05_10_00_25_23_913_AdobeCreativeCloudExpress](https://user-images.githubusercontent.com/96774661/167444299-b554b6d3-d34b-4540-98a6-5a89eecd3f27.gif)
+
+
+
+### 나만의 일기장
+
+**폴더 구조**
+
+![mydiaryfile](https://user-images.githubusercontent.com/96774661/167445000-b3e0a34c-02b6-42fd-967d-8cd0f8b2da65.PNG)
+
+
+**글 삭제, 글 수정, 최소 글자 기능 구현**
+
+![녹화_2022_05_10_00_34_24_18_AdobeCreativeCloudExpress](https://user-images.githubusercontent.com/96774661/167445747-e6f772a0-f9f9-4c2b-8bf6-4811e59d04b5.gif)
