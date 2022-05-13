@@ -81,3 +81,6 @@ props와 component의 기본을 생각할 수 있는 기회를 만들고,
 ### 🔥 Result of 2 round 🔥
 
 ToDoList, 일기장을 만들었습니다.
+1. setState 함수를 통해 previous snapshot과 snapshot의 개념을 알게 되었습니다.
+2. CRUD 중 Update시 기존의 값을 보존하며 수정하는 방법을 서로 공유하였습니다.
+3. 부모 컴포넌트의 state를 props로 받고, 그 값이 바뀌면 자식 컴포넌트도 재실행,재평가 된다는 것을 알게 되었습니다
