@@ -58,9 +58,9 @@ props와 component의 기본을 생각할 수 있는 기회를 만들고,
 <br/>
 
 ## Results 🍭
-- 회원가입 폼
+- Sign-up Form
 - ToDoList
-- 일기장
+- Diary
 - Product Maker
 
 <br/>
