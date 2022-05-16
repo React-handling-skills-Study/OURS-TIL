@@ -85,3 +85,15 @@ ToDoList, 일기장을 만들었습니다.
 1. setState 함수를 통해 previous snapshot과 snapshot의 개념을 알게 되었습니다.
 2. CRUD 중 Update시 기존의 값을 보존하며 수정하는 방법을 서로 공유하였습니다.
 3. 부모 컴포넌트의 state를 props로 받고, 그 값이 바뀌면 자식 컴포넌트도 재실행,재평가 된다는 것을 알게 되었습니다
+
+<br/>
+<br/>
+
+### 🔥 Result of 3 round 🔥
+
+로컬스토리지를 활용한 CRUD를 만들었습니다.
+1. 입력한 값을 state에 저장하는 것부터 localStorage로 저장까지의 데이터 흐름을 알 수 있었습니다.
+2. useEffect를 사용해보며 Side Effect가 무엇인지 개념을 알게 되었습니다.
+3. localstorage 메서드는 동기적이며(Sync), setItem을 한다고 해서 저장 사항이 즉각적으로 바뀌지 않는다는 것을 알게 되었습니다.
+4. useRef의 사용과, 함수를 통해 자식 컴포넌트의 상태를 부모 컴포넌트로 끌어올리는 방법을 배웠습니다.
+5. useReducer를 적극적으로 사용하며, action과 payload의 개념을 알게 되었습니다.
