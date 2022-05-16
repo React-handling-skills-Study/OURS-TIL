@@ -25,6 +25,7 @@ function App() {
     setDiary(prev => prev.filter(item => item.id !== id))
   }
 
+  
 
   
   return (

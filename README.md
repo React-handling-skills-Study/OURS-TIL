@@ -43,3 +43,16 @@
 **글 삭제, 글 수정, 최소 글자 기능 구현**
 
 ![녹화_2022_05_10_00_34_24_18_AdobeCreativeCloudExpress](https://user-images.githubusercontent.com/96774661/167445747-e6f772a0-f9f9-4c2b-8bf6-4811e59d04b5.gif)
+
+
+### Product Creator
+
+**폴더 구조**
+
+![0516fold](https://user-images.githubusercontent.com/96774661/168532782-d339dbff-a246-458e-a9f8-13ed06d0c22c.PNG)
+
+
+
+**LocalStorage를 활용한 CRUD**
+
+![ezgif com-gif-maker (22)](https://user-images.githubusercontent.com/96774661/168532661-df908a1c-cd94-4adc-a279-42c37dd44816.gif)

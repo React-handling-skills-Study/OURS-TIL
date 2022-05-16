@@ -44,10 +44,11 @@ const TodoInsert = ({onInsert}) => {
     setValue(e.target.value)
   }
   const onSubmit = e => {
-    if(!value.trim() || value.length < 5){
+    if(value.trim().length < 5){
       e.preventDefault();
       return;
     }
+    console.log(value.trim().split('  ').join(''));
     e.preventDefault();
     onInsert(value)
     setValue('');
