@@ -1,9 +1,9 @@
-import { useReducer, useRef, useState, useEffect } from 'react';
+import { useReducer, useRef, useState, useEffect, useCallback } from 'react';
 import Father from './Components/PracticeProps/Father';
 import Mother from './Components/PracticeProps/Mother';
 import styled from '@emotion/styled';
 // import InputForm from './Components/Form/InputForm';
-// import DummyData from './DummyData';
+import DummyData from './DummyData';
 
 // COMPONENT STYLE
 const Parents = styled.div`
@@ -102,37 +102,40 @@ const productReducer = (state, action) => {
 };
 //COMPONENT
 function App() {
-  const [productInfomation, dispatchProductInfomation] = useReducer(
+  const [productInformation, dispatchProductInformation] = useReducer(
     productReducer,
     initialState
   );
+  const [] = useState();
+
   const idInput = useRef(null);
   const priceInput = useRef(null);
   const titleInput = useRef(null);
   const descriptionInput = useRef(null);
+
   const [products, setProducts] = useState([]);
 
   // HANDLER FOR DISPATCHING
   const idChangeHandler = () => {
-    dispatchProductInfomation({
+    dispatchProductInformation({
       type: 'ID_INPUT',
       value: idInput.current.value,
     });
   };
   const priceChangeHandler = () => {
-    dispatchProductInfomation({
+    dispatchProductInformation({
       type: 'PRICE_INPUT',
       value: priceInput.current.value,
     });
   };
   const titleChangeHandler = () => {
-    dispatchProductInfomation({
+    dispatchProductInformation({
       type: 'TITLE_INPUT',
       value: titleInput.current.value,
     });
   };
   const descriptionChangeHandler = () => {
-    dispatchProductInfomation({
+    dispatchProductInformation({
       type: 'DESCRIPTION_INPUT',
       value: descriptionInput.current.value,
     });
@@ -141,17 +144,16 @@ function App() {
   //GETTING DATA FROM LOCAL STORAGE
   useEffect(() => {
     const localStorageProducts =
-      JSON.parse(localStorage.getItem('products')) || [];
-    setProducts(localStorageProducts);
+      JSON.parse(localStorage.getItem('products')) || []; // 일단 Local storage의 내용을 받아와서..
+    setProducts(localStorageProducts); // products 상태에 반영
   }, []);
 
   //SETTING DATA ON LOCAL STORAGE
+
   useEffect(() => {
-    if (products?.length === 0) {
-      return;
-    }
-    localStorage.setItem('products', JSON.stringify(products));
-  }, [products]);
+    if (products.length === 0) return;
+    localStorage.setItem('products', JSON.stringify(products)); // 1. products 상태를 stringify하고 setItem으로 Local storage key에 저장
+  }, [products]); // 2. product값에 변화가 있을 때 마다 위 내용을 실행
 
   // SUBMIT
   const onSubmit = (e) => {
@@ -159,7 +161,7 @@ function App() {
 
     const localStorageProducts =
       JSON.parse(localStorage.getItem('products')) || [];
-    setProducts([productInfomation, ...localStorageProducts]);
+    setProducts([productInformation, ...localStorageProducts]); // 현재 Local storage의 상태에 setProducts로 입력되는 productInformation을 끼워넣음
 
     //INITIALIZE INPUTS
     idInput.current.value = '';
@@ -180,9 +182,20 @@ function App() {
     alert('submit!');
   };
 
+  // INITIALIZE LOCAL STORAGE
   const initLocalStorage = () => {
     localStorage.removeItem('products');
+    setProducts([]);
   };
+
+  // REMOVE PRODUCT INFORMATION
+  const onRemove = useCallback(
+    (id) => {
+      console.log(productInformation);
+      setProducts(products.filter((x) => x.id !== id));
+    },
+    [products]
+  );
 
   // RENDERING
   return (
@@ -223,7 +236,7 @@ function App() {
             shopping_cart
           </CartButton>
         </Form>
-        <button onClick={initLocalStorage}>로컬 스토리지 초기화</button>
+        <button onClick={initLocalStorage}>Initialize local storage</button>
         <div>
           {products?.map((product) => (
             <ProductContainer>
@@ -235,6 +248,10 @@ function App() {
               <ButtonContainer>
                 <button>+</button>
                 <button>-</button>
+                <button onClick={() => onRemove(product.id)}>
+                  delete
+                </button>{' '}
+                <button>modify</button>
               </ButtonContainer>
             </ProductContainer>
           ))}
