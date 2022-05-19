@@ -107,16 +107,12 @@ function App() {
     initialState
   );
   const [products, setProducts] = useState([]);
-  const [isShowUpdate, setIsShowUpdate] = useState(false)
-  
-  
+  const [isShowUpdate, setIsShowUpdate] = useState(false);
 
   const idInput = useRef(null);
   const priceInput = useRef(null);
   const titleInput = useRef(null);
   const descriptionInput = useRef(null);
-  
-
 
   // HANDLER FOR DISPATCHING
   const idChangeHandler = () => {
@@ -154,9 +150,10 @@ function App() {
   //SETTING DATA ON LOCAL STORAGE
 
   useEffect(() => {
-    if (products.length === 0) 
-    {localStorage.removeItem('products');
-    return;}
+    if (products.length === 0) {
+      localStorage.removeItem('products');
+      return;
+    }
     localStorage.setItem('products', JSON.stringify(products)); // 1. products 상태를 stringify하고 setItem으로 Local storage key에 저장
   }, [products]); // 2. products값에 변화가 있을 때 마다 위 내용을 실행
 
@@ -194,21 +191,15 @@ function App() {
   };
 
   // REMOVE PRODUCT INFORMATION
-  const onClickRemove = 
-    (id) => {
-      setProducts(products.filter((x) => x.id !== id));
-      
-    }
-    console.log(products)
-    
-  
+  const onClickRemove = (id) => {
+    setProducts(products.filter((x) => x.id !== id));
+  };
+  console.log(products);
+
   //ONCLICK MODIFY BUTTON
   const onClickModify = () => {
-    setIsShowUpdate(!isShowUpdate)
-  }
-
-
-
+    setIsShowUpdate(!isShowUpdate);
+  };
 
   // RENDERING
   return (
@@ -217,7 +208,7 @@ function App() {
         <Father onInputSubmit={onInputSubmit} />
         <Mother onClick={onClick} count={count} />
       </Parents>
-      
+
       <div className="App">
         <Form onSubmit={onSubmit}>
           <label htmlFor="">
@@ -261,7 +252,7 @@ function App() {
                 isShowUpdate={isShowUpdate}
                 setIsShowUpdate={setIsShowUpdate}
                 onClickModify={onClickModify}
-                />
+              />
 
               <ProductInfo key={product.id}>
                 <li>{product.title}</li>
@@ -275,7 +266,6 @@ function App() {
                   delete
                 </button>{' '}
                 <button onClick={onClickModify}>수정</button>
-                
               </ButtonContainer>
             </ProductContainer>
           ))}
