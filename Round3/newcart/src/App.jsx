@@ -4,7 +4,7 @@ import Mother from './Components/PracticeProps/Mother';
 import styled from '@emotion/styled';
 // import InputForm from './Components/Form/InputForm';
 import DummyData from './DummyData';
-
+import UpdateBox from './Components/UpdateBox';
 // COMPONENT STYLE
 const Parents = styled.div`
   width: 50%;
@@ -106,14 +106,16 @@ function App() {
     productReducer,
     initialState
   );
-  const [] = useState();
+  const [products, setProducts] = useState([]);
+  
+  const [isUpdateVisible, setIsUpdateVisible] = useState(false);
 
   const idInput = useRef(null);
   const priceInput = useRef(null);
   const titleInput = useRef(null);
   const descriptionInput = useRef(null);
+  
 
-  const [products, setProducts] = useState([]);
 
   // HANDLER FOR DISPATCHING
   const idChangeHandler = () => {
@@ -196,6 +198,12 @@ function App() {
     },
     [products]
   );
+  
+  //UPDATE ITEM INFORMATION
+    //아이디를 조회해서 그 product의 정보를 얻어와서 Input에 넣어야함
+    // 그 정보를 수정한 걸 다시 products에 끼워 넣어야함
+
+
 
   // RENDERING
   return (
@@ -204,6 +212,7 @@ function App() {
         <Father onInputSubmit={onInputSubmit} />
         <Mother onClick={onClick} count={count} />
       </Parents>
+      
       <div className="App">
         <Form onSubmit={onSubmit}>
           <label htmlFor="">
@@ -212,13 +221,13 @@ function App() {
           </label>
           <label htmlFor="">
             {' '}
-            가격
-            <input type="text" ref={priceInput} onChange={priceChangeHandler} />
+            제품명
+            <input type="text" ref={titleInput} onChange={titleChangeHandler} />
           </label>
           <label htmlFor="">
             {' '}
-            제품명
-            <input type="text" ref={titleInput} onChange={titleChangeHandler} />
+            가격
+            <input type="text" ref={priceInput} onChange={priceChangeHandler} />
           </label>
           <label htmlFor="">
             {' '}
@@ -240,6 +249,12 @@ function App() {
         <div>
           {products?.map((product) => (
             <ProductContainer>
+              <UpdateBox
+                products={products}
+                setProducts={setProducts}
+                product={product}
+                />
+
               <ProductInfo key={product.id}>
                 <li>{product.title}</li>
                 <li>{'$' + product.price}</li>
@@ -251,7 +266,7 @@ function App() {
                 <button onClick={() => onRemove(product.id)}>
                   delete
                 </button>{' '}
-                <button>modify</button>
+                
               </ButtonContainer>
             </ProductContainer>
           ))}
