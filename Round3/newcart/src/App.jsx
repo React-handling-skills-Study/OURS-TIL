@@ -3,7 +3,7 @@ import Father from './Components/PracticeProps/Father';
 import Mother from './Components/PracticeProps/Mother';
 import styled from '@emotion/styled';
 // import InputForm from './Components/Form/InputForm';
-import DummyData from './DummyData';
+// import DummyData from './DummyData';
 import UpdateBox from './Components/UpdateBox';
 // COMPONENT STYLE
 const Parents = styled.div`
@@ -107,8 +107,9 @@ function App() {
     initialState
   );
   const [products, setProducts] = useState([]);
+  const [isShowUpdate, setIsShowUpdate] = useState(false)
   
-  const [isUpdateVisible, setIsUpdateVisible] = useState(false);
+  
 
   const idInput = useRef(null);
   const priceInput = useRef(null);
@@ -153,9 +154,11 @@ function App() {
   //SETTING DATA ON LOCAL STORAGE
 
   useEffect(() => {
-    if (products.length === 0) return;
+    if (products.length === 0) 
+    {localStorage.removeItem('products');
+    return;}
     localStorage.setItem('products', JSON.stringify(products)); // 1. products 상태를 stringify하고 setItem으로 Local storage key에 저장
-  }, [products]); // 2. product값에 변화가 있을 때 마다 위 내용을 실행
+  }, [products]); // 2. products값에 변화가 있을 때 마다 위 내용을 실행
 
   // SUBMIT
   const onSubmit = (e) => {
@@ -191,17 +194,19 @@ function App() {
   };
 
   // REMOVE PRODUCT INFORMATION
-  const onRemove = useCallback(
+  const onClickRemove = 
     (id) => {
-      console.log(productInformation);
       setProducts(products.filter((x) => x.id !== id));
-    },
-    [products]
-  );
+      
+    }
+    console.log(products)
+    
   
-  //UPDATE ITEM INFORMATION
-    //아이디를 조회해서 그 product의 정보를 얻어와서 Input에 넣어야함
-    // 그 정보를 수정한 걸 다시 products에 끼워 넣어야함
+  //ONCLICK MODIFY BUTTON
+  const onClickModify = () => {
+    setIsShowUpdate(!isShowUpdate)
+  }
+
 
 
 
@@ -247,12 +252,15 @@ function App() {
         </Form>
         <button onClick={initLocalStorage}>Initialize local storage</button>
         <div>
-          {products?.map((product) => (
-            <ProductContainer>
+          {products?.map((product, keyValue) => (
+            <ProductContainer key={keyValue}>
               <UpdateBox
                 products={products}
                 setProducts={setProducts}
                 product={product}
+                isShowUpdate={isShowUpdate}
+                setIsShowUpdate={setIsShowUpdate}
+                onClickModify={onClickModify}
                 />
 
               <ProductInfo key={product.id}>
@@ -263,9 +271,10 @@ function App() {
               <ButtonContainer>
                 <button>+</button>
                 <button>-</button>
-                <button onClick={() => onRemove(product.id)}>
+                <button onClick={() => onClickRemove(product.id)}>
                   delete
                 </button>{' '}
+                <button onClick={onClickModify}>수정</button>
                 
               </ButtonContainer>
             </ProductContainer>
