@@ -194,7 +194,6 @@ function App() {
   const onClickRemove = (id) => {
     setProducts(products.filter((x) => x.id !== id));
   };
-  console.log(products);
 
   //ONCLICK MODIFY BUTTON
   const onClickModify = () => {
