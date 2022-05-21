@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Links from "./pages/Links";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
+import QueryString from "./pages/QueryString";
 const App = () => {
   return (
     <BrowserRouter>
@@ -11,6 +12,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/links" element={<Links />} />
         <Route path="/profile/:id" element={<Profile />} />
+        <Route path="/querystring" element={<QueryString />} />
       </Routes>
     </BrowserRouter>
   );
