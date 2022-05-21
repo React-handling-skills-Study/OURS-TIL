@@ -6,7 +6,6 @@ import styled from "@emotion/styled";
 const StyledLink = styled(Link)`
   display: block;
   text-decoration: none;
-  font-size: 20px;
   color: green;
   font-weight: 700;
   margin-left: 20px;
