@@ -62,7 +62,6 @@ const ProductItem = ({id, title, price, description,removeProductHandler,setStor
   //
   
   const updateProductHandler = (id,newText) => {
-    console.log('hi')
     setStoredProduct((prev) =>prev?.map((product) =>product.id === id? {
               ...product,
               title: newText.title,

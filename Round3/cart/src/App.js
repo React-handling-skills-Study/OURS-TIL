@@ -77,7 +77,9 @@ function App() {
 
   useEffect(() => {
     if (storedProduct?.length === 0) {
+      localStorage.clear()
       return;
+      
     }
     localStorage.setItem('product', JSON.stringify(storedProduct));
   }, [storedProduct]);
