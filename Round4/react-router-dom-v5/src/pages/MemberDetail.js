@@ -490,8 +490,10 @@ const Card = styled.div`
 margin-top: 5rem;
 display:flex;
 flex-direction:column;
+justify-content:center;
+
 padding: 1.5rem;
-gap:30px;
+gap:20px;
 position: absolute;
 left:6rem;
 top:50%;

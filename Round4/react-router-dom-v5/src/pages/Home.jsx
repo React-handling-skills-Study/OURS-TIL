@@ -1,8 +1,7 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
-import About from './About';
-import Contect from './Contect';
+import { Link } from 'react-router-dom';
+
 
 
 const Banner = styled.div`
@@ -40,17 +39,16 @@ a{
   
 `
 const Home = () => {
+  
   return (
     <>
     <h1>Material Industry</h1>
-      <Banner><h2>Sustainable growth engine and ESG leading company</h2>
+      {<Banner><h2>Sustainable growth engine and ESG leading company</h2>
       <ButtonWrapper>
       <Link to="/contect">Contect</Link>
       <Link to="/about">About Us</Link>
       </ButtonWrapper>
-      </Banner>  
-      
-    
+      </Banner> } 
       </>
   );
 };
