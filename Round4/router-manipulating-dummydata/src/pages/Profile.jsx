@@ -1,44 +1,40 @@
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Navigate } from "react-router-dom";
 import DummyData from "../DummyData";
-import styled from "@emotion/styled";
 
-const ProfileContainer = styled.div`
-  font-size: 20px;
-  font-weight: 700;
-`;
-
-const Profile = () => {
+const Profile = ({ isLoggedIn }) => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const x = DummyData.filter((dummy) => dummy.id === id);
+  const foundData = DummyData.find((dummy) => dummy.id === id); // find 사용
 
-  console.log(x);
+  console.log("foundData로그", foundData);
 
-  // const people = (...x);  //// 해당되는 객체만 뽑으려 했지만 실패
+  ////// 로그인 값이 유효하면 프로필 페이지를 렌더링하고 그게 아니면
+  //// 로그인 페이지로 자동으로 이동시킨다
 
-  return (
-    <>
-      <h2>프로필 페이지</h2>
-      {DummyData.map((dummy) =>
-        dummy.id === id ? (
-          <ProfileContainer>
-            <h1>{dummy.title}님의 신상정보</h1>
-            <div>phone: {dummy.phone}</div>
-            <div>email: {dummy.email}</div>
-            <div>address: {dummy.address}</div>
-            <div>region: {dummy.region}</div>
-            <div>country: {dummy.country}</div>
-          </ProfileContainer>
-        ) : null
-      )}
-      <button onClick={() => navigate("/")}>
-        useNavigate()기능: navigate("/") Home 가기
-      </button>
-      <button onClick={() => navigate(-1)}>navigate(-1) 뒤로가기</button>
-    </>
-  );
+  if (isLoggedIn) {
+    return (
+      <div>
+        <h2>프로필 페이지</h2>
+
+        <h1>{foundData.title}님의 신상정보</h1>
+        <div>phone: {foundData.phone}</div>
+        <div>email: {foundData.email}</div>
+        <div>address: {foundData.address}</div>
+        <div>region: {foundData.region}</div>
+        <div>country: {foundData.country}</div>
+
+        <button onClick={() => navigate("/")}>
+          useNavigate()기능: navigate("/") Home 가기
+        </button>
+        <button onClick={() => navigate(-1)}>navigate(-1) 뒤로가기</button>
+      </div>
+    );
+  } else {
+    alert("로그인을 하셔야 프로필을 조회할 수 있습니다");
+    return <Navigate to="/login" />;
+  }
 };
 
 export default Profile;

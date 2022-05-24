@@ -24,10 +24,12 @@ const StyledLink = styled(Link)`
 
 const Links = () => {
   const navigate = useNavigate();
+
   const sortedDummyData = DummyData.sort(function(a, b) {
     // 이름 abc 오름차순
     return a.title < b.title ? -1 : a.title > b.title ? 1 : 0;
   });
+
   return (
     <div>
       <h1>링크 모음 페이지</h1>
@@ -35,6 +37,14 @@ const Links = () => {
         useNavigate()기능: navigate("/") Home 가기
       </button>
       <button onClick={() => navigate(+1)}>navigate(+1) 앞으로 가기</button>
+
+      <form action="">
+        <label htmlFor="">
+          검색창
+          <input type="text" />
+        </label>
+      </form>
+
       <LinkContainer>
         {sortedDummyData.map((dummy) => (
           <div>
