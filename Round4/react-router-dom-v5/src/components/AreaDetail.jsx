@@ -37,24 +37,26 @@ const Member = styled.div`
     color:#a14a14;
   }
 `
+const Emphasis = styled.span`
+  font-size:32px;
+`
 
-
-const AreaDetail = ({filteredArea,dummy}) => {
+const AreaDetail = ({filteredArea,loadedMembers}) => {
   const params = useParams();
   console.log(params);
-  const branchInfo = filteredArea.find((item) => item.country === params.memberarea)
-  const branchMembers = dummy.filter((dummy) => dummy.country === params.memberarea);
+  const branchInfo = filteredArea?.find((item) => item.country === params.memberarea)
+  const branchMembers = loadedMembers?.filter((member) => member.country === params.memberarea);
   console.log(params.memberarea)
   console.log(branchInfo)
   console.log(branchMembers)
   return (
     <>   
     <Wrapper>
-      <h1>M.I {params.memberArea} Branch</h1>
+      <h3><Emphasis>{branchInfo.country}</Emphasis> Branch Info</h3>
       <BranchInfo>Branch number: {branchInfo.phone}</BranchInfo>
       <BranchInfo>Branch Address: {branchInfo.address}</BranchInfo>
       <BranchInfo>Branch email: {branchInfo.email}</BranchInfo>
-      <BranchInfo>NPD:(net profit for the day) :{branchInfo.currency}</BranchInfo>
+      <BranchInfo>NPD(net profit for the day): {branchInfo.currency}</BranchInfo>
       <BranchInfo>Weekly Report Submission: {branchInfo.isSales ? "Summission" : "Not yet"}</BranchInfo>
       <div>
         <h2>{params.memberArea} Branch Employee</h2>

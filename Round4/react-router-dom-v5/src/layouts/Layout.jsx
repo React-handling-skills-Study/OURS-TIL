@@ -36,7 +36,7 @@ const StyledNavLink = styled(NavLink)`
     color:white;
   }
 `
-const Layout = ({children}) => {
+const Layout = ({children,isLogged}) => {
   return (
     <MainLayout>
       <h1><Link to='/'>Material Industry</Link></h1>
@@ -45,10 +45,11 @@ const Layout = ({children}) => {
       <li><StyledNavLink activeClassName="any" to='/about'>About</StyledNavLink></li>
       <li><StyledNavLink activeClassName="any" to='/members'>Members</StyledNavLink></li>
       <li><StyledNavLink activeClassName="any" to='/area'>Business Area</StyledNavLink></li>
+      <li><StyledNavLink activeClassName="any" to='/newmember'>New Members</StyledNavLink></li>
       </ul>
       <ul>
       <li><StyledNavLink activeClassName="any" to='/help'>Help</StyledNavLink></li>
-      <li><StyledNavLink activeClassName="any" to='/login'>LogIn</StyledNavLink></li>
+      <li><StyledNavLink activeClassName="any" to='/login'>{isLogged ? "Log-Out" : "Log-In"}</StyledNavLink></li>
       </ul>
       {children}
     </MainLayout>

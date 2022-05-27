@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from '@emotion/styled';
 import MemberDescription from './MemberDescription';
+import { useParams } from 'react-router-dom';
 
 const MembersProfile = styled.ul`
 margin-top: 2rem;
@@ -9,10 +10,14 @@ margin-top: 2rem;
   align-items:flex-start;
   justify-content:center;
   gap:50px;
-  
 `
 
+
+
+
 const MembersList = ({dummydata}) => {
+  
+  
   return (
     <>
      <MembersProfile>
@@ -25,4 +30,4 @@ const MembersList = ({dummydata}) => {
   );
 };
 
-export default React.memo(MembersList);
+export default MembersList;
