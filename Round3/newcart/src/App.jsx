@@ -58,7 +58,7 @@ const ProductInfo = styled.ul`
   height: 50%;
 `;
 
-/// INITIAL STATE
+// INITIAL STATE
 const initialState = {
   id: '',
   price: 0,
