@@ -13,7 +13,7 @@ export const theme = createTheme({
       light: '#757ce8',
       main: '#3f50b5',
       dark: '#002884',
-      contrastText: '#fff',
+      contrastText: '#aaa',
     },
     secondary: {
       light: '#ff7961',
@@ -28,8 +28,8 @@ export const theme = createTheme({
 
 const reset = css`
 body{
-background-color:#114492;
-color:white;
+background-color:#0A1929;
+color:#ccc;
 }
 *{
   margin:0;

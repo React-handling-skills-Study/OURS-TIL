@@ -7,6 +7,10 @@ import { getAllNewMembers } from '../lib/api';
 import NewMemberMessage from '../pages/NewMemberMessage';
 import BasicCard from '../UI/BasicCard';
 import LoadingSpinner from '../UI/LoadingSpinner';
+import useSort from '../hooks/use-sort';
+
+
+
 
 const Wrapper = styled.div`
 position:relative;
@@ -31,7 +35,7 @@ const SortButton = styled(Button)`
 `
 
 
-const sortMembers = (member, isSortByName) => {
+const sortMembers = (member, isSortByName,) => {
 	return member?.sort((memberA,memberB) => {
 		if(isSortByName){
 			return memberA.name > memberB.name ? 1 : -1;
@@ -41,7 +45,7 @@ const sortMembers = (member, isSortByName) => {
 	})
 }
 // call useHttp for newmembers
-const OrangeHawksMemberList = () => {
+const OrangeHawksMemberList = ({handleShowingNewMembers}) => {
   const {status,data: loadedNewMember,sendRequest} = useHttp(getAllNewMembers);
   const [isShow,setIsShow] = useState(false);
   const location = useLocation();
@@ -68,6 +72,7 @@ const OrangeHawksMemberList = () => {
 
   const showMessage = () => {
     setIsShow(prev => !prev)
+    handleShowingNewMembers(true)
   }
   const onChangeSortData = () => {
     history.push({
@@ -93,11 +98,12 @@ const OrangeHawksMemberList = () => {
           name={member.name}
           phone={member.phone}
           showMessage={showMessage}
+         
         />
       ))}
     </Wrapper>}
     {isShow && <Route path={`/newMember/orangehawks/:newmemberId`}>
-    <NewMemberMessage loadedNewMember={loadedNewMember} showMessage={showMessage} />
+    <NewMemberMessage loadedNewMember={loadedNewMember} showMessage={showMessage}  />
   </Route>}
     </>
   );

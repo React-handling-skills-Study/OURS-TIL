@@ -34,7 +34,8 @@ export default function BasicCard({
         entertingDate,
         name,
         phone,
-        showMessage
+        showMessage,
+        
       }) {
    
   return (

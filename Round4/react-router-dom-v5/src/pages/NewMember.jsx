@@ -22,8 +22,8 @@ const LinkWrapper = styled.div`
 
 const NewMember = () => {
   const [showingMember,setShowingMember] = useState(false)
-  const handleShowingNewMembers = () => {
-    setShowingMember(true);
+  const handleShowingNewMembers = (bool) => {
+    setShowingMember(bool);
   }
   return (
     <>
@@ -32,11 +32,11 @@ const NewMember = () => {
      <p>In 2022, Materials Industry and Orange Hawks Inc. has murged. </p> 
      </Wrapper>
     <LinkWrapper>
-    {!showingMember &&<Link onClick={handleShowingNewMembers} to="/newmember/orangehawks">See new members</Link>}
+    {!showingMember &&<Link onClick={(e)=>handleShowingNewMembers(true)} to="/newmember/orangehawks">See new members</Link>}
     </LinkWrapper>
     {showingMember && <Route path="/newmember/orangehawks">
     
-      <OrangeHawksMemberList/>
+      <OrangeHawksMemberList handleShowingNewMembers={handleShowingNewMembers} />
     
     </Route>}
     

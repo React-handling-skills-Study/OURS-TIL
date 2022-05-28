@@ -5,6 +5,7 @@ import { Link, Route, useHistory, useLocation, useParams } from 'react-router-do
 import { getAllMembers } from '../lib/api';
 import useHttp from '../hooks/use-http';
 import LoadingSpinner from '../UI/LoadingSpinner';
+import useSort from '../hooks/use-sort';
 
 const Wrapper = styled.div`
 	position:relative;
@@ -64,35 +65,14 @@ export const SpinnerWrapper = styled.div`
 	transform:translate(-50%,-50%);
 `
 
-const sortMembers = (member, isSortByName) => {
-	return member?.sort((memberA,memberB) => {
-		if(isSortByName){
-			return memberA.title > memberB.title ? 1 : -1;
-		} else{
-			return memberA.title < memberB.title ? 1 : -1;
-		}
-	})
-}
 
 const Members = () => {
 		const {sendRequest, status, data:loadedMembers, error} = useHttp(getAllMembers);
-		const location = useLocation();
-		const history = useHistory();
-		const queryParams = new URLSearchParams(location.search);
-		const isSortByName = queryParams.get('sort') === 'byname';
-		
+		const {sortedMembers,onChangeSortData,isSortByName} = useSort(loadedMembers)
 
 		useEffect(()=>{
 			sendRequest();
 		},[sendRequest])
-
-		const onChangeSortData = () => {
-			history.push({
-				pathname: location.pathname,
-				search: `?sort=${(isSortByName ? 'reversebyname' : 'byname' )}`
-			})
-		}
-		const sortedMembers = sortMembers(loadedMembers,isSortByName) || [];
 
 		if(status === 'pending'){
 			return <SpinnerWrapper>

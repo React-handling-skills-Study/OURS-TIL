@@ -80,14 +80,14 @@ export async function getWelcomeMessage(messageId){
   }
   
   const messageArray = [];
+
   for(const key in data){
+
   const welcomeMessageObj = {
     id:key,
     ...data[key]
-  }
-  
+  }  
   messageArray.push(welcomeMessageObj)
-  
 }
   return messageArray;
 }
@@ -108,6 +108,7 @@ export async function addWelcomeMessage(messageData){
 }
 
 export async function deleteWelcomeMessage(messageData){
+  
   const response = await fetch(`${API_URL}/welcomemessage/${messageData.newmemberId}/${messageData.messageId}.json`,{
     method: 'DELETE',
     headers:{

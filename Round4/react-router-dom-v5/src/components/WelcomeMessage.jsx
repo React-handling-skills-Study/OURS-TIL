@@ -45,12 +45,15 @@ const WelcomeMessage = ({setWelcomeMessageList,welcomeMessageList, loadedWelcome
   const params = useParams();
   const { newmemberId } = params;
 
+
+
   const deleteMessageHandler = (messageId) => {
     if (window.confirm('are you sure?')) {
       sendRequest({ newmemberId, messageId });
       setWelcomeMessageList((prev) => prev.filter(item => item.id !== messageId))
     }
   };
+
   return (
     <MessageList>
       {loadedWelcomeMessage.map((message) => (
