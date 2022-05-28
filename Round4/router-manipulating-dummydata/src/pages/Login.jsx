@@ -16,10 +16,12 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     setIsLoggedIn((prev) => !prev);
+    alert("로그인 완료!");
   };
 
   if (isLoggedIn) {
-    alert("로그인 완료!");
+    localStorage.setItem("isLoggedIn", JSON.stringify(isLoggedIn));
+
     navigate("/links");
   }
 
