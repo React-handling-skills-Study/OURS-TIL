@@ -7,10 +7,24 @@ import QueryString from "./pages/QueryString";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import Header from "./pages/Header";
+import axios from "axios";
 // import Profile2 from "./pages/Profile2";
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  // axios 연습해보기
+  const getData = async () => {
+    const res = await axios({
+      url: "https://wecart-ca053-default-rtdb.firebaseio.com/myungseong.json",
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+  };
+  getData();
+
+  ////////////// 비동기 밖에서 할당이 불가능한듯..?
   useEffect(() => {
     const IsLocalStorageLoggedIn = JSON.parse(
       localStorage.getItem("isLoggedIn")

@@ -1,13 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, Navigate } from "react-router-dom";
-import DummyData from "../DummyData";
+import axios from "axios";
 
 const Profile = ({ isLoggedIn }) => {
+  const [dummy, setDummy] = useState([]);
   const { id } = useParams();
+  // 비동기 처리
+  const getData = async () => {
+    const res = await axios({
+      url: "https://wecart-ca053-default-rtdb.firebaseio.com/myungseong.json",
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+      },
+    });
 
-  const foundData = DummyData.find((dummy) => dummy.id === id); // find 사용
+    setDummy(res.data.find((i) => i.id === id));
+  };
 
-  console.log("foundData로그", foundData);
+  useEffect(() => {
+    getData();
+  }, []);
 
   ////// 로그인 값이 true면 프로필 페이지를 렌더링하고
   //// false면 로그인 페이지로 자동으로 이동
@@ -15,14 +28,14 @@ const Profile = ({ isLoggedIn }) => {
   if (isLoggedIn) {
     return (
       <div>
-        <h2>프로필 페이지(Profi)</h2>
+        <h2>프로필 페이지(Profile)</h2>
 
-        <h1>{foundData.title}님의 신상정보</h1>
-        <div>phone: {foundData.phone}</div>
-        <div>email: {foundData.email}</div>
-        <div>address: {foundData.address}</div>
-        <div>region: {foundData.region}</div>
-        <div>country: {foundData.country}</div>
+        <h1>{dummy.title}님의 신상정보</h1>
+        <div>phone: {dummy.phone}</div>
+        <div>email: {dummy.email}</div>
+        <div>address: {dummy.address}</div>
+        <div>region: {dummy.region}</div>
+        <div>country: {dummy.country}</div>
       </div>
     );
   } else {

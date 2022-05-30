@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, Outlet, useSearchParams } from "react-router-dom";
-import DummyData from "../DummyData";
+import axios from "axios";
 import styled from "@emotion/styled";
 
 const LinkContainer = styled.div`
@@ -23,6 +23,25 @@ const StyledLink = styled(Link)`
 `;
 
 const Links = () => {
+  const [dummy, setDummy] = useState([]); //// let 빈배열 푸쉬로도 할 수 있다
+
+  const getData = async () => {
+    const res = await axios({
+      url: "https://wecart-ca053-default-rtdb.firebaseio.com/myungseong.json",
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+
+    setDummy(res.data);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+  console.log("더미", dummy);
+
   const [searchParams, setSearchParams] = useSearchParams();
 
   const sortByName = searchParams.get("sortByName"); //get으로 가져와서 할당
@@ -37,11 +56,11 @@ const Links = () => {
   };
 
   if (sortByName === "name") {
-    DummyData.sort(function(a, b) {
+    dummy.sort(function(a, b) {
       return a.title > b.title ? 1 : -1;
     });
   } else if (sortByName === "reverseName") {
-    DummyData.sort(function(a, b) {
+    dummy.sort(function(a, b) {
       return a.title < b.title ? 1 : -1;
     });
   }
@@ -55,11 +74,11 @@ const Links = () => {
   };
 
   if (sortByRegion === "region") {
-    DummyData.sort(function(a, b) {
+    dummy.sort(function(a, b) {
       return a.region > b.region ? 1 : -1;
     });
   } else if (sortByRegion === "reverseRegion") {
-    DummyData.sort(function(a, b) {
+    dummy.sort(function(a, b) {
       return a.region < b.region ? 1 : -1;
     });
   }
@@ -73,7 +92,7 @@ const Links = () => {
       <Outlet />
 
       <LinkContainer>
-        {DummyData.map((dummy) => (
+        {dummy.map((dummy) => (
           <div>
             <StyledLink to={`profile/${dummy.id}`}>
               Name: {dummy.title}
