@@ -86,10 +86,10 @@ const App = () => {
   }
 
   // DELETE 해보기
-  // GET 해보기
+
   const onClickDelete = async () => {
     const axiosDelete = await axios({
-      url: 'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/jcdHoPRt7OBhro18GQNz',
+      url: 'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/지울 ID',
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',
