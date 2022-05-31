@@ -1,0 +1,13 @@
+.DiaryList {
+  min-height: 320px;
+  max-height: 513px;
+  overflow-y: auto;
+  padding: 20px;
+  h2 {
+    text-align: center;
+  }
+  span {
+    font-size: 2rem;
+    color: #b5838d;
+  };
+}

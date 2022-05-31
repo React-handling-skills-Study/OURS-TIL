@@ -1,0 +1,43 @@
+.DiaryListItem {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; // 세로 중앙 정렬
+  border: 2px solid #457b9d;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  .content {
+    width: 80%;
+    .date {
+      padding: 0 10px 10px 0;
+      border-bottom: 1px solid gray;
+    }
+    .text {
+      margin-top: 10px;
+    }
+  }
+  .icons {
+    display: flex;
+    .edit {
+      font-size: 1.5rem;
+      align-items: center;
+      display: flex;
+      color: #619b8a;
+      margin-right: 0.15rem;
+      cursor: pointer;
+      &:hover {
+        color: #2d6a4f;
+      }
+    }
+    .remove {
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+      color: #e63946;
+      cursor: pointer;
+      &:hover {
+        color: #780000;
+      }
+    }
+  }
+}

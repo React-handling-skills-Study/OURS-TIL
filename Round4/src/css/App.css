@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Open+Sans:wght@300;600;800&family=Poppins:wght@500;600;700&family=Yeon+Sung&display=swap');
+
+body {
+  background-color: #f6f6f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Nanum Pen Script";
+  min-height: 100vh;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  margin: 2rem;
+}
+
+h2 {
+  text-align: center;
+}
+
+.title {
+  font-size: 3rem;
+}
+
+@media (min-width: 650px) {
+  .App {
+    width: 640px;
+  }
+}
+
+@media (max-width: 650px) {
+  .App {
+    /* vw는 view port width, 지금 보는 화면에서 90% 채우게 하겠다.*/
+    width: 90vw 
+  }
+}
+
+#root {
+  background-color: #fff;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.App {
+  /* vh는 view port high */
+  min-height: 100vh;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Category */
+.wrapper {
+  border: 2px solid #5e6472;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 1rem;
+  /* box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px; */
+  box-shadow:  0 20px 30px -10px rgb(38,57,77);
+}
+
+.wrapper button {
+  border: none;
+  cursor: pointer;
+  background: #fff;
+  font-family: "Nanum Pen Script";
+  font-size: 1.4rem;
+  background: #ffa69e;
+  border-radius: 0.5rem;
+  padding: 0.4rem;
+  width: 80px;
+  transition: all 0.3s ease-in;
+}
+
+.wrapper button:hover {
+  background: #fe6d73;
+  transform: scale(1.1);
+  color: #fff;
+}
+
+/* MyHeader */
+header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2rem;
+  padding: 1rem;
+  border-bottom: 1px solid;
+}
+
+header button{
+  border: none;
+  cursor: pointer;
+  background: #fff;
+  font-family: "Nanum Pen Script";
+  font-size: 1.7rem;
+}
+
+header button:hover {
+  transform: scale(1.2);
+}
+
+/* Country */
+.country-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+}
+
+.country-items {
+  border: 1px solid;
+  margin: 10px;
+  border-radius: 0.5rem;
+  box-shadow: 1px 0.5px 5px 1px;
+}
+
+.country-items .country-name {
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  color: coral;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-decoration: none;
+}
+
+.country-details {
+  padding: 1rem;
+}
+
+
+/* Region */
+.region-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+}
+
+.region-items {
+  border: 1px solid;
+  margin: 10px;
+  border-radius: 0.5rem;
+  box-shadow: 1px 0.5px 5px 1px;
+}
+
+.region-items > div > h3 {
+  color: #264653;
+}
+
+.region-items > div > p >span {
+  color: #8d99ae;
+  font-size: 1.2rem;
+}
+
+.region-items > div > p {
+  font-size: 1.7rem;
+}
+
+.region-items > div {
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  color: #0077b6;
+  
+}
+
+.region-group {
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+}
+
+.region-group > button {
+  width: 12%;
+  outline: none;
+  border: none;
+  border-radius: 0.3rem;
+  background: #a2d2ff;
+  padding: 0.2rem;
+  font-family: "Nanum Pen Script";
+  font-size: 1.2rem; 
+  margin-bottom: 1rem;
+  cursor: pointer;
+  border: 2px solid #03045e;
+}
+
+.btn-sort {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.btn-sort > button{
+  border: none;
+  font-size: 1.3rem;
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+  background: #8e7dbe;
+  width: 80px;
+  cursor: pointer;
+  color: white;
+}
+
+/* City */
+.city-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+}
+
+.city-items {
+  border: 1px solid;
+  margin: 10px;
+  border-radius: 0.5rem;
+  box-shadow: 1px 0.5px 5px 1px;
+}
+
+.city-items > div {
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  color: #bc4749;
+  
+}
+
+/* Distance */
+.distance-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+}
+
+.distance-items {
+  border: 1px solid;
+  margin: 10px;
+  border-radius: 0.5rem;
+  box-shadow: 1px 0.5px 5px 1px;
+}
+
+.distance-items > div {
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  
+  
+}
+
+.distance-items .distance {
+  color: #e63946;
+}
+
+/* sale */
+.sale-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+}
+
+.sale-items {
+  border: 1px solid;
+  margin: 10px;
+  border-radius: 0.5rem;
+  box-shadow: 1px 0.5px 5px 1px;
+  height: 203px;
+}
+
+.sale-items .countryName {
+  border-bottom: 1px solid black;
+  padding: 0.7rem;
+  width: 70%;
+  margin: 0 auto;
+  color: #bc4749;
+}
+
+.sale-items .no-sale {
+  margin: 5rem auto;
+  font-size: 2rem;
+}
+
+/* In Country */
+.image-flag {
+  display: flex;
+  justify-content: center;
+  
+}
+
+.flag {
+  width: 300px;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+}
+
+.scenery {
+  width: 100%;
+  border-radius: 0.8rem;
+  margin: 1rem 0;
+  cursor: pointer;
+}
+
+/* Login */
+.login {
+  width: 250px;
+  margin: 0 auto;
+  text-align: end;
+}
+
+.login-inner {
+  display: flex;
+  flex-direction: column;
+  border: 1.5px solid;
+  margin-top: 3rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  box-shadow: 10px 10px 5px 0px rgba(229,229,229,1);
+  align-content: space-around;
+}
+
+.login-inner h1 {
+  border-bottom: 1px solid;
+  padding-bottom: 0.5rem;
+}
+
+.login-inner button {
+  background: #cdb4db;
+  border: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  width: 85%;
+  margin: 0 auto;
+}
+
+.login-inner button:hover {
+  background: #9b5de5;
+  color: #fff;
+}
+
+.login-inner label {
+  margin-bottom: 0.5rem;
+  margin-right: 1.2rem;
+}
+
+.login-text {
+  text-decoration: none;
+  color:red;
+  font-size: 2rem;
+}

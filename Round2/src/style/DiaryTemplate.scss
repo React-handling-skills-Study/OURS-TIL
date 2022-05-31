@@ -1,0 +1,20 @@
+.DiaryTemplate {
+  width: 512px;
+  margin: auto;
+  margin-top: 6rem;
+  border-radius: 10px;
+  overflow: hidden;
+
+  .app-title {
+    background: #0d3b66;
+    color: #ffffff;
+    height: 4rem;
+    font-size: 1.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .content {
+    background: #ffffff;
+  }
+}

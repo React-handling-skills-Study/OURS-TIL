@@ -1,0 +1,76 @@
+.modalContainer {
+  position: absolute;
+  top: 20%;
+  width: 512px;
+  margin: auto;
+  margin-top: 10rem;
+  border-radius: 10px;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .modal {
+    background-color: #a2d2ff;
+    width: calc(15rem + 15vw);
+    height: auto;
+    padding: 20px;
+    border-radius: 20px;
+
+    button {
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      background-color: #f1faee;
+      &:hover {
+        background-color: #ffafcc;
+      }
+    };
+
+    &_header {
+      position: relative;
+      border-bottom: 1px solid #546a7b;
+
+      &-title {
+        text-align: center;
+      }
+
+      .clear {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 5px;
+        cursor: pointer;
+      }
+    }
+    
+    &_content {
+      border-bottom: 1px solid #546a7b;
+      padding: 2rem 0;
+      width: 100%;
+      height: 100%;
+
+      textarea {
+        width: 97%;
+        height: 200px;
+      }
+    }
+
+    &_footer {
+      padding: 2rem 0;
+      padding-bottom: 0;
+
+      button {
+        float: right;
+        padding: 0.5rem;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      .submit {
+        margin-right: 1rem;
+      }
+    }
+  }
+}
