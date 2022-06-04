@@ -33,7 +33,7 @@ const NewsList = () => {
 
 	return (
 		<>
-			<div className="font-sans text-3xl grid grid-cols-4 gap -4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-6 text-center p-5">
+			<div className="font-noto text-3xl grid grid-cols-4 gap-4 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 text-center p-5">
 				{articles.map((article) => (
 					<div key={article.url}>
 						<div className="flex justify-center">
