@@ -1,10 +1,11 @@
 import React from 'react'
+import uuid from 'react-uuid'
 
-const Category = () => {
+const Nav = () => {
 	return (
-		<div>
-			<nav className='flex justify-center p-5'>
-				<div className='nav-inner flex flex-row gap-2'>
+		<div className='nav-inner w-7/12 mx-auto p-5'>
+			<nav className=''>
+				<div className='nav-inner flex justify-between font-nimbusSans font-bold'>
 					<div>Business</div>
 					<div>Entertainment</div>
 					<div>General</div>
@@ -18,4 +19,4 @@ const Category = () => {
 	)
 }
 
-export default Category
+export default Nav

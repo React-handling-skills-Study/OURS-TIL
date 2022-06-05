@@ -31,8 +31,14 @@ const SEARCHNEWS_API = 'https://newsapi.org/v2/everything'
 const HEADLINE_API = 'https://newsapi.org/v2/top-headlines'
 const API_KEY = 'fc6feda2f1494c178cfa2b3206437328'
 
-const getHeadline = async (country, category, pageSize, page) => {
-	const url = `${HEADLINE_API}?country=${country}&category=${category}&pageSize=${pageSize}&page=${page}&apiKey=${API_KEY}`
-	const response = await axios.get(url)
-	return response.data.articles
+export const getHeadline = async (category = 'business', page = 1) => {
+	const url = `${HEADLINE_API}?country=kr&category=${category}&page=${page}&apiKey=${API_KEY}`
+	const res = await axios.get(url)
+	// console.log(res.data)
+
+	if (!(res.status === 'ok')) {
+		throw new Error(res.message || '오류가 발생했습니다.')
+	}
+
+	return res.data.articles
 }
