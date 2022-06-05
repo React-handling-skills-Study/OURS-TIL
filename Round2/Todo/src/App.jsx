@@ -3,9 +3,7 @@ import TodoTemplate from './components/TodoTemplate';
 import TodoInsert from './components/TodoInsert';
 import TodoList from './components/TodoList';
 import Validation from './components/Validation';
-
-import axios from '../node_modules/axios/index';
-
+import axios from 'axios';
 const App = () => {
   const [todos, setTodos] = useState([]);
 
@@ -78,7 +76,7 @@ const App = () => {
         username: uesrName,
       },
       data: {
-        title: '2번으로 들어감',
+        title: '박지훈',
         order: 2,
       },
     });
@@ -89,7 +87,7 @@ const App = () => {
 
   const onClickDelete = async () => {
     const axiosDelete = await axios({
-      url: 'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/지울 ID',
+      url: 'https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/aPYPBkuf83wPjtRR541U',
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',
