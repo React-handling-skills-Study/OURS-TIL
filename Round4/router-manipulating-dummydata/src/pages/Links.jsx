@@ -24,6 +24,7 @@ const StyledLink = styled(Link)`
 
 const Links = () => {
   const [dummy, setDummy] = useState([]); //// let 빈배열 푸쉬로도 할 수 있다
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const getData = async () => {
     const res = await axios({
@@ -41,8 +42,6 @@ const Links = () => {
     getData();
   }, []);
   console.log("더미", dummy);
-
-  const [searchParams, setSearchParams] = useSearchParams();
 
   const sortByName = searchParams.get("sortByName"); //get으로 가져와서 할당
 
