@@ -3,12 +3,12 @@ import HeadlineView from './HeadlineView'
 import { HeadlineContext } from '../../store/HeadlineContext'
 
 const Headline = () => {
-	// const headlineValue = useContext(HeadlineContext)
-	// const { headlineNews } = headlineValue
+	const articles = useContext(HeadlineContext)
+	console.log(articles)
 
 	return (
 		<div className=''>
-			<HeadlineView />
+			<HeadlineView articles={articles} />
 		</div>
 	)
 }

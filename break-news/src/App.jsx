@@ -5,16 +5,16 @@ import NewsList from './components/NewsList'
 import Nav from './components/Nav'
 import Header from './components/Header'
 import Main from './components/main-headline/Main'
-import HeadlineContextProvider from './store/HeadlineContext'
+import HeadlineProvider from './store/HeadlineContext'
 
 function App() {
 	return (
 		<div className='App'>
 			<Header />
 			<Nav />
-			<HeadlineContextProvider>
+			<HeadlineProvider>
 				<Main />
-			</HeadlineContextProvider>
+			</HeadlineProvider>
 			{/* <NewsList /> */}
 		</div>
 	)
