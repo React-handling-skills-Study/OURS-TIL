@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import Categories from "../components/Categories";
 import NewsList from "../components/NewsList";
+import Pagination from "../components/Pagination";
 
 const NewsPage = () => {
   const params = useParams();
@@ -10,6 +11,7 @@ const NewsPage = () => {
     <>
       <Categories />
       <NewsList category={category} />
+      <Pagination />
     </>
   );
 };
