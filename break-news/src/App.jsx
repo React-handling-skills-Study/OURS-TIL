@@ -1,21 +1,18 @@
-import React, { useState } from 'react'
-import axios from 'axios'
+import React from 'react'
 
-import NewsList from './components/NewsList'
-import Nav from './components/Nav'
 import Header from './components/Header'
-import Main from './components/main-headline/Main'
 import HeadlineProvider from './store/HeadlineContext'
+import RouteBundle from './routes/RouteBundle'
+import Navigaion from './components/Navigaion'
 
 function App() {
 	return (
 		<div className='App'>
 			<Header />
-			<Nav />
+			<Navigaion />
 			<HeadlineProvider>
-				<Main />
+				<RouteBundle />
 			</HeadlineProvider>
-			{/* <NewsList /> */}
 		</div>
 	)
 }

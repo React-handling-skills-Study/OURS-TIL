@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 export default function usePromise(promiseCreator, deps) {
 	// 대기 중/완료/실패에 대한 상태 관리
@@ -6,19 +6,24 @@ export default function usePromise(promiseCreator, deps) {
 	const [resolved, setResolved] = useState(null)
 	const [error, setError] = useState(null)
 
-	useEffect(() => {
-		const process = async () => {
+	const process = useCallback(
+		async (category = 'technology', pageNumber = 1) => {
 			setLoading(true) // 대기 중 상태로 변경
 			try {
-				const resolved = await promiseCreator()
-				setResolved(resolved) // 완료 상태로 변경
+				const responseData = await promiseCreator(category, pageNumber)
+				setResolved(responseData)
 			} catch (e) {
 				setError(e) // 실패 상태로 변경
 			}
 			setLoading(false)
-		}
-		process()
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, deps)
-	return [loading, resolved, error]
+		},
+		[promiseCreator]
+	)
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	return {
+		loading,
+		response: resolved,
+		error,
+		process,
+	}
 }

@@ -1,19 +1,22 @@
-import { createContext } from 'react'
+import { createContext, useEffect } from 'react'
 import { getHeadline } from '../lib/api'
 import usePromise from '../lib/usePromise'
 
 export const HeadlineContext = createContext()
 
 const HeadlineProvider = ({ children }) => {
-	const [loading, response, error] = usePromise(getHeadline, [])
+	const { loading, response, error, process } = usePromise(getHeadline, [])
+	useEffect(() => {
+		process()
+	}, [process])
 
 	if (loading) return <div>로딩중...</div>
 	if (!response) return <div>아직 아무것도 없음</div>
-	if (error) return <div>에러 발생!</div>
+	if (error) return <div>error</div>
 
-	const { articles } = response
+	const headlineContext = { articles: response.data }
 
-	return <HeadlineContext.Provider value={articles}>{children}</HeadlineContext.Provider>
+	return <HeadlineContext.Provider value={headlineContext}>{children}</HeadlineContext.Provider>
 }
 
 export default HeadlineProvider

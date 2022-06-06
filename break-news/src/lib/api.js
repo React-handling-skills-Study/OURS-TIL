@@ -29,10 +29,20 @@ import axios from 'axios'
 
 const SEARCHNEWS_API = 'https://newsapi.org/v2/everything'
 const HEADLINE_API = 'https://newsapi.org/v2/top-headlines'
-const API_KEY = 'fc6feda2f1494c178cfa2b3206437328'
+const API_KEY = '0432fa1777024774b3e3efc6f6e98c13'
 
-export const getHeadline = async (category = 'business', page = 1) => {
-	const url = `${HEADLINE_API}?country=kr&category=${category}&page=${page}&apiKey=${API_KEY}`
-	const res = await axios.get(url)
-	return res.data
+export const getHeadline = async (category = 'technology', pageNumber = 1) => {
+	const response = await axios(
+		`${HEADLINE_API}?country=kr&category=${category}&page=${pageNumber}&pageSize=10&apiKey=${API_KEY}`,
+		{
+			method: 'GET',
+			'content-type': 'application/json',
+		}
+	)
+
+	if (!(response.data.status === 'ok')) {
+		throw new Error(response.message || 'Error!')
+	}
+
+	return response
 }
