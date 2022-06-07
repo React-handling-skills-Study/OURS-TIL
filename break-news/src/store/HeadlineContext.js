@@ -10,7 +10,7 @@ const HeadlineProvider = ({ children }) => {
 		process()
 	}, [process])
 
-	if (loading) return <div>로딩중...</div>
+	if (loading) return <div className='text-center'>Loading...</div>
 	if (!response) return <div>아직 아무것도 없음</div>
 	if (error) return <div>error</div>
 

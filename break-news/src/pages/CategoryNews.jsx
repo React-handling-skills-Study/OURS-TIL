@@ -14,7 +14,7 @@ const CategoryNews = () => {
 	}, [category])
 	console.log(response)
 	if (loading) {
-		return <p>Loading...</p>
+		return <p className='text-center'>Loading...</p>
 	}
 	if (!response) {
 		console.log(response)
@@ -31,10 +31,10 @@ const CategoryNews = () => {
 		<>
 			<div className='font-noto text-3xl grid grid-cols-4 gap-4 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 text-center p-5'>
 				{articles.map((article) => (
-					<div key={article.url}>
+					<div key={article.url} className='cursor-pointer'>
 						<div className='flex justify-center'>
 							<img
-								src={article.urlToImage}
+								src={article.urlToImage === null ? './images/no-image.jpeg' : article.urlToImage}
 								alt='newsImage'
 								className='w-72 h-52 p-2 border-2 border-gray-300 rounded-lg shadow-xl m-5'
 							/>

@@ -7,9 +7,9 @@ const Navigaion = () => {
 
 	return (
 		<div className='nav-inner w-7/12 mx-auto p-5'>
-			<nav className='nav-inner flex justify-between font-nimbusSans font-bold'>
+			<nav className='nav-inner flex justify-between font-nimbusSans font-bold '>
 				{navList.map((nav) => (
-					<NavLink key={uuid()} to={`/${nav}`}>
+					<NavLink key={uuid()} to={`/${nav}`} className={`hover:font-extrabold hover:underline`}>
 						{nav}
 					</NavLink>
 				))}
