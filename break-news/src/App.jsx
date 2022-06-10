@@ -4,6 +4,7 @@ import Header from './components/Header'
 import HeadlineProvider from './store/HeadlineContext'
 import RouteBundle from './routes/RouteBundle'
 import Navigaion from './components/Navigaion'
+import UtilProvider from './store/UtilContext'
 
 function App() {
 	return (
@@ -11,7 +12,9 @@ function App() {
 			<Header />
 			<Navigaion />
 			<HeadlineProvider>
-				<RouteBundle />
+				<UtilProvider>
+					<RouteBundle />
+				</UtilProvider>
 			</HeadlineProvider>
 		</div>
 	)

@@ -1,31 +1,31 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import usePromise from '../lib/usePromise'
 import { getHeadline } from '../lib/api'
 import { useParams } from 'react-router-dom'
-import axios from 'axios'
+import Pagination from '../assets/Pagination'
+import { UtilContext } from '../store/UtilContext'
 
 const CategoryNews = () => {
+	const { curPageNum, getPageNum } = useContext(UtilContext)
+
 	const { category } = useParams()
-	console.log(category)
 
 	const { loading, response, error, process } = usePromise(getHeadline)
 	useEffect(() => {
-		process(category)
-	}, [category])
-	console.log(response)
+		process(category, curPageNum)
+	}, [category, curPageNum, process])
+
 	if (loading) {
 		return <p className='text-center'>Loading...</p>
 	}
 	if (!response) {
-		console.log(response)
 		return <p>Nothing</p>
 	}
 	if (error) {
 		return <p>{error}</p>
 	}
 
-	const articles = response.data.articles
-	console.log(articles)
+	const { articles, totalResults } = response.data
 
 	return (
 		<>
@@ -43,9 +43,7 @@ const CategoryNews = () => {
 					</div>
 				))}
 			</div>
-			<button className='w-1/6 border block mx-auto my-10 hover:bg-sky-200 rounded border-gray-300 shadow-lg transition'>
-				News!
-			</button>
+			<Pagination totalResults={totalResults} articles={articles} />
 		</>
 	)
 }
