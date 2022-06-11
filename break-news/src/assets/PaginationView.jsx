@@ -1,6 +1,6 @@
 import uuid from 'react-uuid'
 
-const PaginationView = ({ articles, totalResults, pageNum, page, getPageNum }) => {
+const PaginationView = ({ articles, totalResults, pageNum, getPageNum, curPageNum = { curPageNum } }) => {
 	return (
 		<div className='bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6'>
 			<div className='flex-1 flex justify-between sm:hidden'>
@@ -43,9 +43,9 @@ const PaginationView = ({ articles, totalResults, pageNum, page, getPageNum }) =
 							.map((_, i) => (
 								<button
 									key={uuid()}
-									aria-current='page'
 									onClick={() => getPageNum(i + 1)}
-									className='z-10 bg-zinc-200 border-zinc-500 text-zinc-900 relative inline-flex items-center px-4 py-2 border text-sm font-medium'
+									className='z-10 bg-zinc-200 border-zinc-300 text-zinc-500 relative inline-flex items-center px-4 py-2 border text-sm font-medium'
+									aria-current={curPageNum === i + 1 ? 'page' : 'false'}
 								>
 									{i + 1}
 								</button>

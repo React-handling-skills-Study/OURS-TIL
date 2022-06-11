@@ -5,4 +5,7 @@
   html {
     font-family: Nimbus Sans Becker PBla, Nimbus Sans L, sans-serif;
   }
+  button[aria-current='page'] {
+    @apply text-zinc-900 bg-zinc-500;
+  }
 }
