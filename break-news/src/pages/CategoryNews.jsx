@@ -4,6 +4,7 @@ import { getHeadline } from '../lib/api'
 import { useParams } from 'react-router-dom'
 import Pagination from '../assets/Pagination'
 import { UtilContext } from '../store/UtilContext'
+import noImage from '../images/no-image.jpeg'
 
 const CategoryNews = () => {
 	const { curPageNum, getPageNum } = useContext(UtilContext)
@@ -26,15 +27,16 @@ const CategoryNews = () => {
 	}
 
 	const { articles, totalResults } = response.data
+	console.log(articles)
 
 	return (
 		<>
 			<div className='font-noto text-3xl grid grid-cols-4 gap-4 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 text-center p-5'>
 				{articles.map((article) => (
-					<div key={article.url} className='cursor-pointer'>
-						<div className='flex justify-center'>
+					<div key={article.url}>
+						<div className='flex justify-center cursor-pointer'>
 							<img
-								src={article.urlToImage === null ? './images/no-image.jpeg' : article.urlToImage}
+								src={article.urlToImage === null ? noImage : article.urlToImage}
 								alt='newsImage'
 								className='w-72 h-52 p-2 border-2 border-gray-300 rounded-lg shadow-xl m-5'
 							/>
