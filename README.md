@@ -38,4 +38,4 @@
 
 ![breaknews](https://user-images.githubusercontent.com/90392240/173630990-45189110-1495-4002-aa93-439eefb93c16.gif)
 
-- 라우터, 페이지네이션, VAC 모델 적용, Context API
+- 동적라우팅, 페이지네이션, VAC 모델 적용, Context API
