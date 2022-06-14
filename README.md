@@ -33,3 +33,9 @@
 
 - 라우터 적용 (React-Router-v6)
 - 동적 라우팅, useParams, useNavigate, Outlet
+
+### Result of Round 5 - 뉴스 뷰어
+
+![breaknews](https://user-images.githubusercontent.com/90392240/173630990-45189110-1495-4002-aa93-439eefb93c16.gif)
+
+- 라우터, 페이지네이션, VAC 모델 적용, Context API
