@@ -4,7 +4,7 @@ import Headline from './Headline'
 
 const Main = () => {
 	return (
-		<div className='main-inner w-7/12 mx-auto'>
+		<div className='main-inner w-4/5 mx-auto'>
 			<Banner />
 			<Headline />
 		</div>
